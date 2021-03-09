@@ -1,5 +1,5 @@
 Get_Button_Time	KEYWORD1
 get_b	KEYWORD2
 get_time	KEYWORD2
-
+get_clicked_times KEYWORD2
 
