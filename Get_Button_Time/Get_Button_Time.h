@@ -24,12 +24,14 @@
 		public:
 		  get_b(int pin);
 		  long get_time(void);
+	          int get_clicked_times(int timer_reset); // Use miliseconds
 		  
-			private:
-			  int _pin;
-			  bool _btn_flag = false;
-			  bool _button_pressed = false;
-			  long _tempo_inicial = 0;
-			  long Button_time = 0;
+		private:
+		  int _pin;
+	          int _timer_reset;
+	          bool _btn_flag = false;
+	          bool _button_pressed = false;
+	          long _tempo_inicial = 0;
+	          long Button_time = 0;
     };
 #endif
