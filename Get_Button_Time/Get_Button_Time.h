@@ -30,9 +30,11 @@
 		  int _pin;
 	          int _timer_reset = 0;
 	  	  int cont = 0;
+	  	  bool _last_state = false;
 	          bool _btn_flag = false;
 	          bool _button_pressed = false;
 	          long _tempo_inicial = 0;
+	          long _end_click_time = 0;
 	          long Button_time = 0;
     };
 #endif
