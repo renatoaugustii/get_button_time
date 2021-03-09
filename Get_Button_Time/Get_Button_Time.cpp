@@ -31,19 +31,16 @@ long get_b::get_time()
      {
           if (_btn_flag == false)
           { _tempo_inicial = millis();_btn_flag = true;_button_pressed = true;}
-	  if (_last_state == false){cont = cont++;_last_state = true;}  
 		  return 0;	
       }
 
       else
-      { 
-	if (_last_state == true){_end_click_time = millis();}      
-	_last_state = false;      
+      {     
         if (_button_pressed == true)
            {
                  _btn_flag = false;
                  _button_pressed = false;
-				 Button_time = (millis()-_tempo_inicial);
+				     Button_time = (millis()-_tempo_inicial);
                  return Button_time;
              }
 	         
@@ -51,8 +48,26 @@ long get_b::get_time()
         }	
   }
 
-int get_b::get_clicked_times(int timer_reset);
-{
-	if ((millis()-_end_click_time)<=timer_reset){cont = 0;}
-	return cont;
+int get_b::get_clicked_times(int timer_reset)
+{  
+     
+     bool botao_on_click = digitalRead(_pin);
+     if (botao_on_click == true)
+     {
+          if (_btn_flag_click == false)
+          { _btn_flag_click = true;_last_state = true;cont = cont+1;}
+		  return cont;	
+      }
+
+      else
+         if (_last_state == true)
+           {
+                 _btn_flag_click = false;
+                 _last_state = false;
+                 _end_click_time = millis();
+           }
+      
+      if ((millis()-_end_click_time)>=timer_reset){cont = 0;}
+
+      return cont;
 }
