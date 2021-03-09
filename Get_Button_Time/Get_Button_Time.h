@@ -28,7 +28,8 @@
 		  
 		private:
 		  int _pin;
-	          int _timer_reset;
+	          int _timer_reset = 0;
+	  	  int cont = 0;
 	          bool _btn_flag = false;
 	          bool _button_pressed = false;
 	          long _tempo_inicial = 0;
